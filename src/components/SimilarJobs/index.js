@@ -1,4 +1,4 @@
-import {MDLocationOn} from 'react-icons/md'
+import {MdLocationOn} from 'react-icons/md'
 
 import {AiFillStar} from 'react-icons/ai'
 
@@ -38,7 +38,7 @@ const SimilarJobs = props => {
       </div>
       <div className="job-details-container">
         <div className="job-icon">
-          <MDLocationOn className="location-job-icon" />
+          <MdLocationOn className="location-job-icon" />
           <p className="location-job">{location}</p>
         </div>
         <div className="employment-job-type">
