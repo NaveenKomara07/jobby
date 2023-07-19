@@ -18,7 +18,7 @@ const Header = props => {
       <ul className="header-ul-container">
         <li className="logo-container">
           <Link className="link" to="/">
-            <img className="logo" src={websiteLogo} alt="website-logo" />
+            <img className="logo" src={websiteLogo} alt="website logo" />
           </Link>
         </li>
         <li className="home-jobs-container">
