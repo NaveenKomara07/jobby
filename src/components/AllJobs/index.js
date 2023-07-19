@@ -10,8 +10,6 @@ import Header from '../Header'
 
 import JobItem from '../JobItem'
 
-import './index.css'
-
 const employmentTypesList = [
   {
     label: 'Full Time',
@@ -75,7 +73,7 @@ class AllJobs extends Component {
     radioInput: '',
     searchInput: '',
     apiStatus: apiStatusConstants.initial,
-    apiJobStatus: apiJobsStatusConstants.initial,
+    apiJobsStatus: apiJobsStatusConstants.initial,
   }
 
   componentDidMount = () => {
@@ -86,6 +84,7 @@ class AllJobs extends Component {
   onGetProfileDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
+    // eslint-disable-next-line no-unused-vars
     const {checkboxInputs, radioInput, searchInput} = this.state
     const profileApiUrl = 'https://apis.ccbp.in/profile'
     const optionsProfile = {
@@ -139,10 +138,10 @@ class AllJobs extends Component {
       }))
       this.setState({
         jobsData: updatedDataJobs,
-        apiJobStatus: apiJobsStatusConstants.success,
+        apiJobsStatus: apiJobsStatusConstants.success,
       })
     } else {
-      this.setState({apiJobStatus: apiJobsStatusConstants.failure})
+      this.setState({apiJobsStatus: apiJobsStatusConstants.failure})
     }
   }
 
@@ -167,6 +166,7 @@ class AllJobs extends Component {
         eachItem => eachItem !== event.target.id,
       )
       this.setState(
+        // eslint-disable-next-line no-unused-vars
         prevState => ({checkboxInputs: filteredData}),
         this.onGetJobDetails,
       )
@@ -271,9 +271,9 @@ class AllJobs extends Component {
   }
 
   onRenderJobsStatus = () => {
-    const {apiJobStatus} = this.state
+    const {apiJobsStatus} = this.state
 
-    switch (apiJobStatus) {
+    switch (apiJobsStatus) {
       case apiJobsStatusConstants.success:
         return this.onGetJobsView()
       case apiJobsStatusConstants.failure:
@@ -337,6 +337,7 @@ class AllJobs extends Component {
   }
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const {checkboxInputs, radioInput, searchInput} = this.state
     return (
       <>
