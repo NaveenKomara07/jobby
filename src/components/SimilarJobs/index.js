@@ -2,12 +2,11 @@ import {MdLocationOn} from 'react-icons/md'
 
 import {AiFillStar} from 'react-icons/ai'
 
-import './index.css'
-
 const SimilarJobs = props => {
   const {similarJobData} = props
   const {
     companyLogoUrl,
+    // eslint-disable-next-line no-unused-vars
     id,
     jobDescription,
     employmentType,
