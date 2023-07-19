@@ -173,7 +173,7 @@ class AboutJobItem extends Component {
             {similarJobsData.map(eachItem => (
               <SimilarJobs
                 key={eachItem.id}
-                similarJobsData={eachItem}
+                similarJobData={eachItem}
                 employmentType={employmentType}
               />
             ))}
