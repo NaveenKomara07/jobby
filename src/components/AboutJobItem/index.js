@@ -6,13 +6,12 @@ import {BiLinkExternal} from 'react-icons/bi'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import SimilarJobs from '../SimilarJobs'
-import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
   failure: 'FAILURE',
-  inProgress: 'INPROGRESS',
+  inProgress: 'IN_PROGRESS',
 }
 
 class AboutJobItem extends Component {
@@ -26,6 +25,7 @@ class AboutJobItem extends Component {
     this.getJobData()
   }
 
+  // eslint-disable-next-line no-unused-vars
   getJobData = async props => {
     const {match} = this.props
     const {params} = match
@@ -58,13 +58,13 @@ class AboutJobItem extends Component {
           rating: eachItem.location,
           skills: eachItem.skills.map(eachSkill => ({
             imageUrl: eachSkill.image_url,
-            name: eachItem.title,
+            name: eachSkill.name,
           })),
           title: eachItem.title,
         }),
       )
 
-      const updateSimilarJobDetails = fetchedJobData.similar_jobs.map(
+      const updatedSimilarJobDetails = fetchedJobData.similar_jobs.map(
         eachItem => ({
           companyLogoUrl: eachItem.company_logo_url,
           id: eachItem.id,
@@ -77,7 +77,7 @@ class AboutJobItem extends Component {
       )
       this.setState({
         jobDataDetails: updatedJobDetailsData,
-        similarJobsData: updateSimilarJobDetails,
+        similarJobsData: updatedSimilarJobDetails,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -94,6 +94,7 @@ class AboutJobItem extends Component {
         companyLogoUrl,
         companyWebsiteUrl,
         employmentType,
+        // eslint-disable-next-line no-unused-vars
         id,
         jobDescription,
         lifeAtCompany,
